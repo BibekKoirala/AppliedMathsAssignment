@@ -26,5 +26,9 @@ jobs:
           python -m pip install --upgrade pip
 
       - name: Run tests
-        run: python ex1_test.py
+        run: |
+          if ! python ex1_test.py; then
+            echo "Test failed: Name is empty"
+            exit 1
+          fi
 
